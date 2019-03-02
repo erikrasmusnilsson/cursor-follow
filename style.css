@@ -1,0 +1,157 @@
+html {overflow-x: hidden;}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2, h3 {
+    font-family: 'Noto Serif SC', serif;
+}
+
+button {
+    outline: 0;
+    border: 0;
+    height: 38px;
+    background-color: #27ae60;
+    position: relative;
+    z-index: 100;
+    color: #fff;
+}
+
+button::before, button::after {
+    content: "";
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    background-color: #27ae60;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+button::before {
+    left: -19px;
+}
+
+button::after {
+    right: -19px;
+}
+
+@media screen and (max-width: 667px) {
+    #content {
+        height: auto !important;
+    }
+    #content #title {
+        display: none;
+    }
+    main {
+        margin-top: 50px !important;
+        max-height: 80vh !important;
+        width: 100% !important;
+        text-align: center;
+    }
+
+    main #overlay {
+        opacity: 1 !important;
+    }
+
+    main #first img, main #second img, main #middle img {
+        max-width: initial !important;
+        width: 100% !important;
+    }
+}
+
+main {
+    width: 500px;
+    height: 750px;
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+main #overlay {
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: absolute;
+    opacity: 0;
+    transition: 1s ease-in-out;
+    background-color: rgba(236, 240, 241, 0.5);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main #github {
+    transition: .3s ease-in-out;
+}
+
+main #github:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+main #overlay > * {
+    margin: 8px;
+}
+
+main:hover #first #first-img {
+    transform: scale(1.2);
+    filter: blur(2px);
+}
+
+main:hover #middle img, main:hover #second img {
+    transform: scale(1.8);
+    filter: blur(1px);
+}
+
+main:hover #overlay {
+    opacity: 1;
+}
+
+#first, #second, #middle {
+    position: absolute;
+}
+
+#first img, #second img, #middle img {
+    max-width: 500px;
+    position: relative;
+}
+
+#middle {
+    mix-blend-mode: soft-light;
+    filter: blur(5px);
+}
+
+#first #first-img, #middle img {
+    transition: all 0.5s ease-in-out;
+    transform: scale(1.5);
+}
+
+#second img {
+    transition: all 0.5s ease-out;
+    filter: blur(2px);
+}
+
+#content {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    width: 100vw;
+}
